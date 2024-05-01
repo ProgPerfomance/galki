@@ -57,8 +57,8 @@ class LoginView extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 18,),
-                Row(
+                const SizedBox(height: 18,),
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text('Нет аккаунта? ',
@@ -67,7 +67,7 @@ class LoginView extends StatelessWidget {
                     ),),
                     Text('Зарегистрироваться'
                     ,style: TextStyle(
-                        color: const Color(0xffF83758),
+                        color: Color(0xffF83758),
                       ),),
                   ],
                 )
