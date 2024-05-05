@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:galki/presentation/auth/document_view.dart';
 import 'package:galki/presentation/auth/otp_view.dart';
 import 'package:galki/presentation/widgets/custom_textfield_widget.dart';
 
@@ -180,8 +181,7 @@ class RegistrationView extends StatelessWidget {
                             ),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                // launchUrl(Uri.parse(
-                                //     'https://sport-w.com/wp-content/uploads/CS_7.80808383.001-01.97.pdf'));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> const DocumentView(label: 'Условия использования')));
                               },
                           ),
                           TextSpan(
@@ -191,8 +191,7 @@ class RegistrationView extends StatelessWidget {
                             ),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                // launchUrl(Uri.parse(
-                                //     'https://sport-w.com/wp-content/uploads/CS_7.80808383.001-01.97.pdf'));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> const DocumentView(label: 'Политика конфиденциальности')));
                               },
                           ),
                           const TextSpan(
@@ -205,8 +204,7 @@ class RegistrationView extends StatelessWidget {
                             ),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                // launchUrl(Uri.parse(
-                                //     'https://sport-w.com/wp-content/uploads/UA_7.80808383.001-01.99.pdf'));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> const DocumentView(label: 'Оферта')));
                               },
                           ),
                         ],
@@ -223,7 +221,7 @@ class RegistrationView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 35.0, horizontal: 24),
         child: InkWell(
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> OTPView()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const OTPView()));
           },
           child: Container(
             height: 52,

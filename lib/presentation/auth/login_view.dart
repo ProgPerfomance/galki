@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:galki/presentation/auth/forgot_password_view.dart';
+import 'package:galki/presentation/auth/registration_view.dart';
 import 'package:galki/presentation/widgets/custom_textfield_widget.dart';
 
 import 'otp_view.dart';
@@ -33,10 +35,15 @@ class LoginView extends StatelessWidget {
                 const SizedBox(height: 18,),
                 CustomTextFieldWidget(controller: _passwordController, text: 'Пароль', password: false),
                 const SizedBox(height: 18,),
-                const Text('Забыли пароль?',style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xffF83758),
-                ),),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ForgotPasswordView()));
+                  },
+                  child: const Text('Забыли пароль?',style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xffF83758),
+                  ),),
+                ),
                 const SizedBox(height: 18,),
                 InkWell(
                   onTap: (){
@@ -58,17 +65,22 @@ class LoginView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 18,),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Нет аккаунта? ',
+                    const Text('Нет аккаунта? ',
                     style: TextStyle(
                       color: Color(0xff939393)
                     ),),
-                    Text('Зарегистрироваться'
-                    ,style: TextStyle(
-                        color: Color(0xffF83758),
-                      ),),
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const RegistrationView()));
+                      },
+                      child: const Text('Зарегистрироваться'
+                      ,style: TextStyle(
+                          color: Color(0xffF83758),
+                        ),),
+                    ),
                   ],
                 )
               ],
