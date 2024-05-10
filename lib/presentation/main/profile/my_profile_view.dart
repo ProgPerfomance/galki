@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:galki/presentation/main/profile/edit_launguage_view.dart';
 import 'package:galki/presentation/main/profile/edit_profile_main_view.dart';
+import 'package:galki/presentation/main/profile/edit_safety_view.dart';
 import 'package:galki/presentation/main/profile/edit_theme_view.dart';
 import 'package:galki/presentation/main/profile/wallet_view.dart';
 import 'package:galki/presentation/main/profile/widgets/edit_avatar.dart';
@@ -296,7 +297,7 @@ class MyProfileView extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>EditThemeView()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const EditThemeView()));
                           },
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -356,7 +357,7 @@ class MyProfileView extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>EditLaunguageView()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const EditLaunguageView()));
                           },
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -456,31 +457,36 @@ class MyProfileView extends StatelessWidget {
                         const SizedBox(
                           height: 12,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  SvgPicture.asset('assets/icons/safety.svg'),
-                                  const SizedBox(
-                                    width: 4,
-                                  ),
-                                  const Text(
-                                    'Безопаность аккаунта',
-                                    style: TextStyle(
-                                      color: Colors.white,
+                        InkWell(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const EditSafetyView()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    SvgPicture.asset('assets/icons/safety.svg'),
+                                    const SizedBox(
+                                      width: 4,
                                     ),
-                                  ),
-                                ],
-                              ),
-                              const Icon(
-                                Icons.arrow_forward_ios_rounded,
-                                size: 14,
-                                color: Color(0xff939393),
-                              ),
-                            ],
+                                    const Text(
+                                      'Безопаность аккаунта',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const Icon(
+                                  Icons.arrow_forward_ios_rounded,
+                                  size: 14,
+                                  color: Color(0xff939393),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
