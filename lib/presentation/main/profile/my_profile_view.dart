@@ -8,6 +8,7 @@ import 'package:galki/presentation/main/profile/edit_safety_view.dart';
 import 'package:galki/presentation/main/profile/edit_theme_view.dart';
 import 'package:galki/presentation/main/profile/wallet_view.dart';
 import 'package:galki/presentation/main/profile/widgets/edit_avatar.dart';
+import 'package:galki/presentation/main/profile/widgets/subcriptions/subscriptions.dart';
 
 class MyProfileView extends StatelessWidget {
   const MyProfileView({super.key});
@@ -239,6 +240,8 @@ class MyProfileView extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(height: 18,),
+                SubscriptiosView(),
                 const SizedBox(
                   height: 24,
                 ),

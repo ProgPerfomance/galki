@@ -35,7 +35,7 @@ class BonusesView extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 color: const Color(0xffF83758),
               ),
-                child: Center(
+                child: const Center(
                   child: Text('Подробнее',
                   style: TextStyle(
                     fontSize: 12,
