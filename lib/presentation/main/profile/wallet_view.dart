@@ -170,33 +170,130 @@ class WalletView extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
-            Divider(
+            const Divider(
               color: Color(0xff444444),
               height: 0.5,
             ),
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('История транзакций',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.white,
-                  ),),
+                  Text(
+                    'История транзакций',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 18,
+                  ),
+                  MoneyOperationCard(text: 'Вывод монет', image: 'assets/icons/money_success.svg', dateString: '11 янв, 18:40', sumString: '-10 ₽', statusString: 'Успешно'),
+                  MoneyOperationCard(text: 'Вывод монет', image: 'assets/icons/monney_wait.svg', dateString: '11 янв, 18:43', sumString: '-10 ₽', statusString: 'В процессе'),
+                  MoneyOperationCard(text: 'Вывод монет', image: 'assets/icons/money_decline.svg', dateString: '11 янв, 18:53', sumString: '-10 ₽', statusString: 'Безуспешно'),
+
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class MoneyOperationCard extends StatelessWidget {
+  final String image;
+  final String text;
+  final String sumString;
+  final String dateString;
+  final String statusString;
+  const MoneyOperationCard(
+      {super.key,
+      required this.text,
+      required this.image,
+      required this.dateString,
+      required this.sumString,
+      required this.statusString});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                SvgPicture.asset(image),
+                const SizedBox(
+                  width: 8,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      text,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      statusString,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                        color: Color(0xff939393),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  sumString,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xff158F2C),
+                  ),
+                ),
+                Text(
+                  dateString,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 10,
+                    color: Color(0xff939393),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+        SizedBox(height: 12,),
+        Align(
+          alignment: Alignment.centerRight,
+          child: Container(
+            height: 0.5,
+            width: MediaQuery.of(context).size.width - 78,
+            color: const Color(0xff444444),
+          ),
+        ),
+        SizedBox(height: 12,),
+      ],
     );
   }
 }

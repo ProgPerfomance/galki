@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:galki/presentation/main/profile/edit_launguage_view.dart';
 import 'package:galki/presentation/main/profile/edit_profile_main_view.dart';
+import 'package:galki/presentation/main/profile/edit_theme_view.dart';
+import 'package:galki/presentation/main/profile/wallet_view.dart';
 import 'package:galki/presentation/main/profile/widgets/edit_avatar.dart';
 
 class MyProfileView extends StatelessWidget {
@@ -110,51 +114,56 @@ class MyProfileView extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        Container(
-                          height: 85,
-                          width: MediaQuery.of(context).size.width / 2 - 20,
-                          decoration: BoxDecoration(
-                            color: const Color(0xff2A2A2A),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Stack(
-                            children: [
-                              const Align(
-                                alignment: Alignment.center,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      '15330',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.w600,
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const WalletView()));
+                          },
+                          child: Container(
+                            height: 85,
+                            width: MediaQuery.of(context).size.width / 2 - 20,
+                            decoration: BoxDecoration(
+                              color: const Color(0xff2A2A2A),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Stack(
+                              children: [
+                                const Align(
+                                  alignment: Alignment.center,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        '15330',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                       ),
-                                    ),
-                                    Text(
-                                      'монеты',
-                                      style: TextStyle(
-                                        color: Color(0xff939393),
-                                        fontSize: 12,
-                                      ),
-                                    )
-                                  ],
+                                      Text(
+                                        'монеты',
+                                        style: TextStyle(
+                                          color: Color(0xff939393),
+                                          fontSize: 12,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              Positioned(
-                                right: 12,
-                                top: 12,
-                                child:
-                                    SvgPicture.asset('assets/icons/info.svg'),
-                              ), //
-                              Positioned(
-                                left: 12,
-                                bottom: 18,
-                                child:
-                                    SvgPicture.asset('assets/icons/coins.svg'),
-                              ), //coins.svg
-                            ],
+                                Positioned(
+                                  right: 12,
+                                  top: 12,
+                                  child:
+                                      SvgPicture.asset('assets/icons/info.svg'),
+                                ), //
+                                Positioned(
+                                  left: 12,
+                                  bottom: 18,
+                                  child:
+                                      SvgPicture.asset('assets/icons/coins.svg'),
+                                ), //coins.svg
+                              ],
+                            ),
                           ),
                         ),
                         const SizedBox(
@@ -285,45 +294,50 @@ class MyProfileView extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
                     child: Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  SvgPicture.asset('assets/icons/theme.svg'),
-                                  const SizedBox(
-                                    width: 4,
-                                  ),
-                                  const Text(
-                                    'Тема интерфейса',
-                                    style: TextStyle(
-                                      color: Colors.white,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>EditThemeView()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    SvgPicture.asset('assets/icons/theme.svg'),
+                                    const SizedBox(
+                                      width: 4,
                                     ),
-                                  ),
-                                ],
-                              ),
-                              const Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    'Системная',
-                                    style: TextStyle(
+                                    const Text(
+                                      'Тема интерфейса',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      'Системная',
+                                      style: TextStyle(
+                                        color: Color(0xff939393),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 4,
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios_rounded,
+                                      size: 14,
                                       color: Color(0xff939393),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: 4,
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward_ios_rounded,
-                                    size: 14,
-                                    color: Color(0xff939393),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         const SizedBox(
@@ -340,45 +354,50 @@ class MyProfileView extends StatelessWidget {
                         const SizedBox(
                           height: 12,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  SvgPicture.asset('assets/icons/language.svg'),
-                                  const SizedBox(
-                                    width: 4,
-                                  ),
-                                  const Text(
-                                    'Язык интерфейса',
-                                    style: TextStyle(
-                                      color: Colors.white,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>EditLaunguageView()));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    SvgPicture.asset('assets/icons/language.svg'),
+                                    const SizedBox(
+                                      width: 4,
                                     ),
-                                  ),
-                                ],
-                              ),
-                              const Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    'RU',
-                                    style: TextStyle(
+                                    const Text(
+                                      'Язык интерфейса',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      'RU',
+                                      style: TextStyle(
+                                        color: Color(0xff939393),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 4,
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios_rounded,
+                                      size: 14,
                                       color: Color(0xff939393),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: 4,
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward_ios_rounded,
-                                    size: 14,
-                                    color: Color(0xff939393),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         const SizedBox(
