@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:galki/presentation/main/profile/edit_profile_main_view.dart';
 import 'package:galki/presentation/main/profile/my_profile_view.dart';
+import 'package:galki/presentation/main/profile/wallet_view.dart';
 import 'package:galki/presentation/onboarding/onboarding_one_view.dart';
 
 void main() {
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyProfileView(),
+      home: WalletView(),
     );
   }
 }

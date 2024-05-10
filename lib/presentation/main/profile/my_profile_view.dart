@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:galki/presentation/main/profile/edit_profile_main_view.dart';
+import 'package:galki/presentation/main/profile/widgets/edit_avatar.dart';
 
 class MyProfileView extends StatelessWidget {
   const MyProfileView({super.key});
@@ -19,12 +21,21 @@ class MyProfileView extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'Ред.',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: Color(0xffF83758),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const EditProfileMainView()));
+                      },
+                      child: const Text(
+                        'Ред.',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xffF83758),
+                        ),
                       ),
                     ),
                     const Text(
@@ -37,10 +48,12 @@ class MyProfileView extends StatelessWidget {
                     SvgPicture.asset('assets/icons/notification.svg'),
                   ],
                 ),
-                const SizedBox(height: 18,),
+                const SizedBox(
+                  height: 18,
+                ),
                 Center(
-                    child:
-                        SvgPicture.asset('assets/icons/not_avatar_profile.svg')),
+                    child: SvgPicture.asset(
+                        'assets/icons/not_avatar_profile.svg')),
                 const SizedBox(
                   height: 12,
                 ),
@@ -78,30 +91,7 @@ class MyProfileView extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width - 32,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    color: const Color(0xff2A2A2A),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        SvgPicture.asset('assets/icons/change_avatar.svg'),
-                        const SizedBox(
-                          width: 4,
-                        ),
-                        const Text(
-                          'Изменить фотографию',
-                          style: TextStyle(
-                            color: Color(0xffF83758),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                const EditAvatar(),
                 const SizedBox(
                   height: 12,
                 ),
@@ -155,12 +145,14 @@ class MyProfileView extends StatelessWidget {
                               Positioned(
                                 right: 12,
                                 top: 12,
-                                child: SvgPicture.asset('assets/icons/info.svg'),
+                                child:
+                                    SvgPicture.asset('assets/icons/info.svg'),
                               ), //
                               Positioned(
                                 left: 12,
                                 bottom: 18,
-                                child: SvgPicture.asset('assets/icons/coins.svg'),
+                                child:
+                                    SvgPicture.asset('assets/icons/coins.svg'),
                               ), //coins.svg
                             ],
                           ),
@@ -203,13 +195,14 @@ class MyProfileView extends StatelessWidget {
                               Positioned(
                                 right: 12,
                                 top: 12,
-                                child: SvgPicture.asset('assets/icons/info.svg'),
+                                child:
+                                    SvgPicture.asset('assets/icons/info.svg'),
                               ), //
                               Positioned(
                                 left: 12,
                                 bottom: 18,
-                                child:
-                                    SvgPicture.asset('assets/icons/referals.svg'),
+                                child: SvgPicture.asset(
+                                    'assets/icons/referals.svg'),
                               ), //coins.svg
                             ],
                           ),
@@ -236,7 +229,9 @@ class MyProfileView extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 24,),
+                const SizedBox(
+                  height: 24,
+                ),
                 Container(
                   width: MediaQuery.of(context).size.width - 32,
                   decoration: BoxDecoration(
@@ -267,15 +262,21 @@ class MyProfileView extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 18,),
-                const Text('Настройки приложения',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                ),),
-                const SizedBox(height: 12,),
+                const SizedBox(
+                  height: 18,
+                ),
+                const Text(
+                  'Настройки приложения',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
                 Container(
-                  width: MediaQuery.of(context).size.width-16,
+                  width: MediaQuery.of(context).size.width - 16,
                   decoration: BoxDecoration(
                     color: const Color(0xff2A2A2A),
                     borderRadius: BorderRadius.circular(16),
@@ -306,26 +307,39 @@ class MyProfileView extends StatelessWidget {
                               const Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Text('Системная',style: TextStyle(
+                                  Text(
+                                    'Системная',
+                                    style: TextStyle(
+                                      color: Color(0xff939393),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 4,
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    size: 14,
                                     color: Color(0xff939393),
-                                  ),),
-                                  SizedBox(width: 4,),
-                                  Icon(Icons.arrow_forward_ios_rounded,size: 14 , color: Color(0xff939393),),
+                                  ),
                                 ],
                               ),
                             ],
                           ),
                         ),
-                        const SizedBox(height: 12,),
+                        const SizedBox(
+                          height: 12,
+                        ),
                         Align(
                           alignment: Alignment.centerRight,
                           child: Container(
                             height: 0.5,
-                            width: MediaQuery.of(context).size.width- 53,
+                            width: MediaQuery.of(context).size.width - 53,
                             color: const Color(0xff444444),
                           ),
                         ),
-                        const SizedBox(height: 12,),
+                        const SizedBox(
+                          height: 12,
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: Row(
@@ -348,26 +362,39 @@ class MyProfileView extends StatelessWidget {
                               const Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Text('RU',style: TextStyle(
+                                  Text(
+                                    'RU',
+                                    style: TextStyle(
+                                      color: Color(0xff939393),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 4,
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    size: 14,
                                     color: Color(0xff939393),
-                                  ),),
-                                  SizedBox(width: 4,),
-                                  Icon(Icons.arrow_forward_ios_rounded,size: 14 , color: Color(0xff939393),),
+                                  ),
                                 ],
                               ),
                             ],
                           ),
                         ),
-                        const SizedBox(height: 12,),
+                        const SizedBox(
+                          height: 12,
+                        ),
                         Align(
                           alignment: Alignment.centerRight,
                           child: Container(
                             height: 0.5,
-                            width: MediaQuery.of(context).size.width- 53,
+                            width: MediaQuery.of(context).size.width - 53,
                             color: const Color(0xff444444),
                           ),
                         ),
-                        const SizedBox(height: 12,),
+                        const SizedBox(
+                          height: 12,
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: Row(
@@ -375,7 +402,8 @@ class MyProfileView extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  SvgPicture.asset('assets/icons/notification_settings.svg'),
+                                  SvgPicture.asset(
+                                      'assets/icons/notification_settings.svg'),
                                   const SizedBox(
                                     width: 4,
                                   ),
@@ -387,20 +415,28 @@ class MyProfileView extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              const Icon(Icons.arrow_forward_ios_rounded,size: 14 , color: Color(0xff939393),),
+                              const Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                size: 14,
+                                color: Color(0xff939393),
+                              ),
                             ],
                           ),
                         ),
-                        const SizedBox(height: 12,),
+                        const SizedBox(
+                          height: 12,
+                        ),
                         Align(
                           alignment: Alignment.centerRight,
                           child: Container(
                             height: 0.5,
-                            width: MediaQuery.of(context).size.width- 53,
+                            width: MediaQuery.of(context).size.width - 53,
                             color: const Color(0xff444444),
                           ),
                         ),
-                        const SizedBox(height: 12,),
+                        const SizedBox(
+                          height: 12,
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: Row(
@@ -420,24 +456,33 @@ class MyProfileView extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              const Icon(Icons.arrow_forward_ios_rounded,size: 14 , color: Color(0xff939393),),
+                              const Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                size: 14,
+                                color: Color(0xff939393),
+                              ),
                             ],
                           ),
                         ),
-                     
                       ],
                     ),
                   ),
                 ),
-                const SizedBox(height: 18,),
-                const Text('Помощь',
+                const SizedBox(
+                  height: 18,
+                ),
+                const Text(
+                  'Помощь',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w700,
-                  ),),
-                const SizedBox(height: 12,),
+                  ),
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
                 Container(
-                  width: MediaQuery.of(context).size.width-16,
+                  width: MediaQuery.of(context).size.width - 16,
                   decoration: BoxDecoration(
                     color: const Color(0xff2A2A2A),
                     borderRadius: BorderRadius.circular(16),
@@ -465,20 +510,28 @@ class MyProfileView extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              const Icon(Icons.arrow_forward_ios_rounded,size: 14 , color: Color(0xff939393),),
+                              const Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                size: 14,
+                                color: Color(0xff939393),
+                              ),
                             ],
                           ),
                         ),
-                        const SizedBox(height: 12,),
+                        const SizedBox(
+                          height: 12,
+                        ),
                         Align(
                           alignment: Alignment.centerRight,
                           child: Container(
                             height: 0.5,
-                            width: MediaQuery.of(context).size.width- 53,
+                            width: MediaQuery.of(context).size.width - 53,
                             color: const Color(0xff444444),
                           ),
                         ),
-                        const SizedBox(height: 12,),
+                        const SizedBox(
+                          height: 12,
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: Row(
@@ -486,7 +539,8 @@ class MyProfileView extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  SvgPicture.asset('assets/icons/referal_programm.svg'),
+                                  SvgPicture.asset(
+                                      'assets/icons/referal_programm.svg'),
                                   const SizedBox(
                                     width: 4,
                                   ),
@@ -498,24 +552,33 @@ class MyProfileView extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              const Icon(Icons.arrow_forward_ios_rounded,size: 14 , color: Color(0xff939393),),
+                              const Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                size: 14,
+                                color: Color(0xff939393),
+                              ),
                             ],
                           ),
                         ),
-
                       ],
                     ),
                   ),
                 ),
-                const SizedBox(height: 18,),
-                const Text('Журнал отладки',
+                const SizedBox(
+                  height: 18,
+                ),
+                const Text(
+                  'Журнал отладки',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w700,
-                  ),),
-                const SizedBox(height: 12,),
+                  ),
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
                 Container(
-                  width: MediaQuery.of(context).size.width-16,
+                  width: MediaQuery.of(context).size.width - 16,
                   decoration: BoxDecoration(
                     color: const Color(0xff2A2A2A),
                     borderRadius: BorderRadius.circular(16),
@@ -525,7 +588,7 @@ class MyProfileView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                         Padding(
+                        Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -536,22 +599,24 @@ class MyProfileView extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                               ),
-                              CupertinoSwitch(value: false, onChanged: (_) {
-
-                              }),
+                              CupertinoSwitch(value: false, onChanged: (_) {}),
                             ],
                           ),
                         ),
-                        const SizedBox(height: 8,),
+                        const SizedBox(
+                          height: 8,
+                        ),
                         Align(
                           alignment: Alignment.centerRight,
                           child: Container(
                             height: 0.5,
-                            width: MediaQuery.of(context).size.width- 53,
+                            width: MediaQuery.of(context).size.width - 53,
                             color: const Color(0xff444444),
                           ),
                         ),
-                        const SizedBox(height: 12,),
+                        const SizedBox(
+                          height: 12,
+                        ),
                         const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 16.0),
                           child: Text(
@@ -565,19 +630,30 @@ class MyProfileView extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 12,),
-                const Text('Журналы откладки могут помочь Галочкам исправить проблемы и сбои.',style: TextStyle(
-                  color: Color(0xff939393),
-                ),),
-                const SizedBox(height: 18,),
-                const Text('О приложении',
+                const SizedBox(
+                  height: 12,
+                ),
+                const Text(
+                  'Журналы откладки могут помочь Галочкам исправить проблемы и сбои.',
+                  style: TextStyle(
+                    color: Color(0xff939393),
+                  ),
+                ),
+                const SizedBox(
+                  height: 18,
+                ),
+                const Text(
+                  'О приложении',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w700,
-                  ),),
-                const SizedBox(height: 12,),
+                  ),
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
                 Container(
-                  width: MediaQuery.of(context).size.width-16,
+                  width: MediaQuery.of(context).size.width - 16,
                   decoration: BoxDecoration(
                     color: const Color(0xff2A2A2A),
                     borderRadius: BorderRadius.circular(16),
@@ -593,7 +669,8 @@ class MyProfileView extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  SvgPicture.asset('assets/icons/version_settings.svg'),
+                                  SvgPicture.asset(
+                                      'assets/icons/version_settings.svg'),
                                   const SizedBox(
                                     width: 4,
                                   ),
@@ -605,20 +682,28 @@ class MyProfileView extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              const Icon(Icons.arrow_forward_ios_rounded,size: 14 , color: Color(0xff939393),),
+                              const Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                size: 14,
+                                color: Color(0xff939393),
+                              ),
                             ],
                           ),
                         ),
-                        const SizedBox(height: 12,),
+                        const SizedBox(
+                          height: 12,
+                        ),
                         Align(
                           alignment: Alignment.centerRight,
                           child: Container(
                             height: 0.5,
-                            width: MediaQuery.of(context).size.width- 53,
+                            width: MediaQuery.of(context).size.width - 53,
                             color: const Color(0xff444444),
                           ),
                         ),
-                        const SizedBox(height: 12,),
+                        const SizedBox(
+                          height: 12,
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: Row(
@@ -626,7 +711,8 @@ class MyProfileView extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  SvgPicture.asset('assets/icons/privary_doc.svg'),
+                                  SvgPicture.asset(
+                                      'assets/icons/privary_doc.svg'),
                                   const SizedBox(
                                     width: 4,
                                   ),
@@ -638,7 +724,11 @@ class MyProfileView extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              const Icon(Icons.arrow_forward_ios_rounded,size: 14 , color: Color(0xff939393),),
+                              const Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                size: 14,
+                                color: Color(0xff939393),
+                              ),
                             ],
                           ),
                         ),
@@ -646,28 +736,34 @@ class MyProfileView extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 12,),
-                const Text('Авторские права Signal Messenger Лицензировано под AGPLv3.',style: TextStyle(
-                  color: Color(0xff939393),
-                ),),
+                const SizedBox(
+                  height: 12,
+                ),
+                const Text(
+                  'Авторские права Signal Messenger Лицензировано под AGPLv3.',
+                  style: TextStyle(
+                    color: Color(0xff939393),
+                  ),
+                ),
                 const SizedBox(
                   height: 18,
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width-32,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    color: const Color(0xffFFE2E2),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: const Center(
-                      child: Text('Выйти из аккаунта',style: TextStyle(
-                        color: Color(0xffFE3B30),
-                      ),)
+                    width: MediaQuery.of(context).size.width - 32,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: const Color(0xffFFE2E2),
                     ),
-                  )
-                )
+                    child: const Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: Center(
+                          child: Text(
+                        'Выйти из аккаунта',
+                        style: TextStyle(
+                          color: Color(0xffFE3B30),
+                        ),
+                      )),
+                    ))
               ],
             ),
           ),

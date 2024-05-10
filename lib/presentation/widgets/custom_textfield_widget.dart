@@ -34,6 +34,7 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
           color: Color(
             0xFFCBCBCB,
           ),
+          fontSize: 14,
         ),
         hintText: widget.text,
         isDense: true,
