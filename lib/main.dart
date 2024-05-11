@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galki/presentation/main/bonuses/bonuses_view.dart';
 import 'package:galki/presentation/main/home_view.dart';
+import 'package:galki/presentation/main/in_progress/in_progress_view.dart';
 import 'package:galki/presentation/main/my_checklist/my_checklist_view.dart';
 import 'package:galki/presentation/main/my_checklist/open_checklist_view.dart';
 import 'package:galki/presentation/main/profile/edit_safety_view.dart';
