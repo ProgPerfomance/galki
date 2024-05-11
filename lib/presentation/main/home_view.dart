@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:galki/presentation/main/bonuses/bonuses_view.dart';
+import 'package:galki/presentation/main/home/home_screen_view.dart';
 import 'package:galki/presentation/main/in_progress/in_progress_view.dart';
 import 'package:galki/presentation/main/my_checklist/my_checklist_view.dart';
 import 'package:galki/presentation/main/profile/my_profile_view.dart';
 
 List<Widget> screens = [
-  const SizedBox(),
+  const HomeScreenView(),
   const MyChecklistView(),
   const InProgressView(),
   const BonusesView(),
