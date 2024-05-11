@@ -791,7 +791,8 @@ class MyProfileView extends StatelessWidget {
                           color: Color(0xffFE3B30),
                         ),
                       )),
-                    ))
+                    )),
+                SizedBox(height: 73,),
               ],
             ),
           ),

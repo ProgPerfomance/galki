@@ -22,6 +22,7 @@ class SubscriptiosView extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
@@ -56,15 +57,15 @@ class SubscriptiosView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SvgPicture.asset('assets/icons/my_desc.svg'),
-                          SizedBox(width: 4,),
-                          Text('Ваша подписка',style: TextStyle(
+                          const SizedBox(width: 4,),
+                          const Text('Ваша подписка',style: TextStyle(
                             color: Color(0xff1F2024),
                             fontSize: 10,
                           ),),
                         ],
                       ),
                     ),
-                    SizedBox(width: 8,),
+                    const SizedBox(width: 8,),
                     Container(
                       height: 35,
                       width: 35,
@@ -80,6 +81,44 @@ class SubscriptiosView extends StatelessWidget {
                 ),
               ],
             ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    SvgPicture.asset('assets/icons/all_inclusive_sub.svg'),
+                    const SizedBox(width: 8,),
+                    const Text('Достук к всем челленджам',style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 11,
+                    ),),
+                  ],
+                ),
+                SizedBox(height: 4,),
+                Row(
+                  children: [
+                    SvgPicture.asset('assets/icons/my_chalenges_sub.svg'),
+                    const SizedBox(width: 8,),
+                    const Text('Возможность создавать свои челленджи',style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 11,
+                    ),),
+                  ],
+                ),
+                SizedBox(height: 4,),
+                Row(
+                  children: [
+                    SvgPicture.asset('assets/icons/coins_sub.svg'),
+                    const SizedBox(width: 8,),
+                    const Text('Реферальные бонусы с Уровней: 1-2',style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 11,
+                    ),),
+                  ],
+                ),
+              ],
+
+            ),
             Container(
               width: MediaQuery.of(context).size.width,
               height: 48,
@@ -87,7 +126,7 @@ class SubscriptiosView extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 color: Colors.black.withOpacity(0.2),
               ),
-              child: Center(
+              child: const Center(
                 child: Text('Продлить до 21.03.2024',
                 style: TextStyle(
                   color: Colors.white,
