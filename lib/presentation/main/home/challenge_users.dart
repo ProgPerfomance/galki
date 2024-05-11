@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:galki/presentation/main/profile/other_profile_view.dart';
 
 class ChallengeUsersView extends StatelessWidget {
   const ChallengeUsersView({super.key});
@@ -29,7 +30,7 @@ class ChallengeUsersView extends StatelessWidget {
             children: [
               Container(
                 height: 44,
-                width: MediaQuery.of(context).size.width-32,
+                width: MediaQuery.of(context).size.width - 32,
                 decoration: BoxDecoration(
                   color: Colors.black,
                   borderRadius: BorderRadius.circular(24),
@@ -37,23 +38,26 @@ class ChallengeUsersView extends StatelessWidget {
                 child: Row(
                   children: [
                     SvgPicture.asset('assets/icons/search.svg'),
-                    const SizedBox(width: 12,),
-                    const Text('Поиск',
-                    style: TextStyle(
-                      color: Color(0xff939393),
-                    ),),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    const Text(
+                      'Поиск',
+                      style: TextStyle(
+                        color: Color(0xff939393),
+                      ),
+                    ),
                   ],
                 ),
               ),
               const SizedBox(
                 height: 24,
               ),
-             ProgressUserCard(),
-              ProgressUserCard(),
-              ProgressUserCard(),
-              ProgressUserCard(),
-              ProgressUserCard(),
-
+              const ProgressUserCard(),
+              const ProgressUserCard(),
+              const ProgressUserCard(),
+              const ProgressUserCard(),
+              const ProgressUserCard(),
             ],
           ),
         ),
@@ -67,36 +71,56 @@ class ProgressUserCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5.5),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-      Row(
-      children: [
-      SvgPicture.asset('assets/icons/not_avatar_profile.svg',height: 40,width: 40,),
-      const SizedBox(width: 12,),
-      const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-      Text('Андрей Митрошин',
-      style: TextStyle(
-      fontWeight: FontWeight.w700,
-      fontSize: 12,
-      color: Colors.white,
-      ),),
-      Text('Выполняет с 15.02.2024',
-      style: TextStyle(
-      fontWeight: FontWeight.w700,
-      fontSize: 12,
-      color: Color(0xff939393),
-      ),),
-      ],
-      )
-      ],
-      ),
-          SvgPicture.asset('assets/icons/progress.svg',width: 22,height: 22,),
-        ],
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>const OtherProfileView()));
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 5.5),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                SvgPicture.asset(
+                  'assets/icons/not_avatar_profile.svg',
+                  height: 40,
+                  width: 40,
+                ),
+                const SizedBox(
+                  width: 12,
+                ),
+                const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Андрей Митрошин',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 12,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      'Выполняет с 15.02.2024',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 12,
+                        color: Color(0xff939393),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+            SvgPicture.asset(
+              'assets/icons/progress.svg',
+              width: 22,
+              height: 22,
+            ),
+          ],
+        ),
       ),
     );
   }

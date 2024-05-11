@@ -9,6 +9,7 @@ import 'package:galki/presentation/main/profile/edit_theme_view.dart';
 import 'package:galki/presentation/main/profile/wallet_view.dart';
 import 'package:galki/presentation/main/profile/widgets/edit_avatar.dart';
 import 'package:galki/presentation/main/profile/widgets/subcriptions/subscriptions.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class MyProfileView extends StatelessWidget {
   const MyProfileView({super.key});
@@ -109,6 +110,34 @@ class MyProfileView extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: const Color(0xff2A2A2A),
                         borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Center(
+                        child: CircularPercentIndicator(
+                          lineWidth: 7.8,
+                          progressColor: Color(0xffF83758),
+                          radius: MediaQuery.of(context).size.width /5.9,
+                          percent: 0.2,
+                          backgroundColor: Color(0xff939393),
+                          center: const Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                '12',style: TextStyle(fontSize: 40,color: Colors.white,fontWeight: FontWeight.w700),
+                                // style:
+                                // theme.themeData.textTheme.titleSmall,
+                              ),
+                              Text(
+                                '115/3667',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Color(0xff939393),
+                                ),
+                                // style: theme
+                                //     .themeData.textTheme.displayMedium,
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -240,8 +269,8 @@ class MyProfileView extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 18,),
-                SubscriptiosView(),
+                const SizedBox(height: 18,),
+                const SubscriptiosView(),
                 const SizedBox(
                   height: 24,
                 ),
@@ -792,7 +821,7 @@ class MyProfileView extends StatelessWidget {
                         ),
                       )),
                     )),
-                SizedBox(height: 73,),
+                const SizedBox(height: 73,),
               ],
             ),
           ),
