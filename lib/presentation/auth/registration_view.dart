@@ -16,204 +16,212 @@ class RegistrationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xff19191A),
+        iconTheme: const IconThemeData(
+          color: Color(0xffF83758),
+        ),
+      ),
       backgroundColor: const Color(0xff19191A),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Регистрация',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(
-                height: 4,
-              ),
-              const Text(
-                'Создайте аккаунт, чтобы приступить к челленджам',
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 14,
-                  color: Color(0xff939393),
-                ),
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              const Text(
-                'Имя',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              CustomTextFieldWidget(
-                  controller: _nameController, text: 'Иван', password: false),
-              const SizedBox(
-                height: 18,
-              ),
-              const Text(
-                'Электронная почта',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              CustomTextFieldWidget(
-                  controller: _nameController,
-                  text: 'name@email.com',
-                  password: false),
-              const SizedBox(
-                height: 18,
-              ),
-              const Text(
-                'Пароль',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              CustomTextFieldWidget(
-                  controller: _nameController,
-                  text: 'Password',
-                  password: false),
-              const SizedBox(
-                height: 18,
-              ),
-              CustomTextFieldWidget(
-                  controller: _nameController,
-                  text: 'Password',
-                  password: false),
-              const SizedBox(
-                height: 18,
-              ),
-              const Text(
-                'ID друга, который вас пригласил',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              CustomTextFieldWidget(
-                  controller: _nameController,
-                  text: 'Введите ID',
-                  password: false),
-              const SizedBox(
-                height: 24,
-              ),
-              Row(
-                children: [
-                  Container(
-                    height: 24,
-                    width: 24,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
-                      border: Border.all(
-                          color: const Color(0xff9B9B9B), width: 1.5),
-                    ),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Регистрация',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.white,
                   ),
-                  const SizedBox(
-                    width: 8,
+                ),
+                const SizedBox(
+                  height: 4,
+                ),
+                const Text(
+                  'Создайте аккаунт, чтобы приступить к челленджам',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                    color: Color(0xff939393),
                   ),
-                  const Text(
-                    'У меня нет ID друга, я нашёл это приложение\nсамостоятельно.',
-                    style: TextStyle(
-                      color: Color(0xff9B9B9B),
-                      fontWeight: FontWeight.w400,
-                    ),
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    height: 24,
-                    width: 24,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
-                      border: Border.all(
-                          color: const Color(0xff9B9B9B), width: 1.5),
-                    ),
+                ),
+                const SizedBox(
+                  height: 24,
+                ),
+                const Text(
+                  'Имя',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
                   ),
-                  const SizedBox(
-                    width: 8,
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                CustomTextFieldWidget(
+                    controller: _nameController, text: 'Иван', password: false),
+                const SizedBox(
+                  height: 18,
+                ),
+                const Text(
+                  'Электронная почта',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
                   ),
-                  Flexible(
-                    child: RichText(
-                      softWrap: true,
-                      text: TextSpan(
-                        children: [
-                          const TextSpan(
-                              text: 'Я подтверждаю своё согласие с ',
-                              style: TextStyle(
-                                  color: Color(
-                                      0xff939393)) //themeData.textTheme.displayMedium,
-                              ),
-                          TextSpan(
-                            text: 'Условиями испольования, ',
-                            style: const TextStyle(
-                              color: Color(0xffF83758),
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> const DocumentView(label: 'Условия использования')));
-                              },
-                          ),
-                          TextSpan(
-                            text: 'Политикой конфиденциальности',
-                            style: const TextStyle(
-                              color: Color(0xffF83758),
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> const DocumentView(label: 'Политика конфиденциальности')));
-                              },
-                          ),
-                          const TextSpan(
-                              text: ' и ',
-                              style: TextStyle(color: Color(0xff939393))),
-                          TextSpan(
-                            text: 'офертой',
-                            style: const TextStyle(
-                              color: Color(0xffF83758),
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> const DocumentView(label: 'Оферта')));
-                              },
-                          ),
-                        ],
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                CustomTextFieldWidget(
+                    controller: _nameController,
+                    text: 'name@email.com',
+                    password: false),
+                const SizedBox(
+                  height: 18,
+                ),
+                const Text(
+                  'Пароль',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                CustomTextFieldWidget(
+                    controller: _nameController,
+                    text: 'Password',
+                    password: false),
+                const SizedBox(
+                  height: 18,
+                ),
+                CustomTextFieldWidget(
+                    controller: _nameController,
+                    text: 'Password',
+                    password: false),
+                const SizedBox(
+                  height: 18,
+                ),
+                const Text(
+                  'ID друга, который вас пригласил',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                CustomTextFieldWidget(
+                    controller: _nameController,
+                    text: 'Введите ID',
+                    password: false),
+                const SizedBox(
+                  height: 24,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      height: 24,
+                      width: 24,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6),
+                        border: Border.all(
+                            color: const Color(0xff9B9B9B), width: 1.5),
                       ),
                     ),
-                  ),
-                ],
-              )
-            ],
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    const Text(
+                      'У меня нет ID друга, я нашёл это приложение\nсамостоятельно.',
+                      style: TextStyle(
+                        color: Color(0xff9B9B9B),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 24,
+                      width: 24,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6),
+                        border: Border.all(
+                            color: const Color(0xff9B9B9B), width: 1.5),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Flexible(
+                      child: RichText(
+                        softWrap: true,
+                        text: TextSpan(
+                          children: [
+                            const TextSpan(
+                                text: 'Я подтверждаю своё согласие с ',
+                                style: TextStyle(
+                                    color: Color(
+                                        0xff939393)) //themeData.textTheme.displayMedium,
+                                ),
+                            TextSpan(
+                              text: 'Условиями испольования, ',
+                              style: const TextStyle(
+                                color: Color(0xffF83758),
+                              ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const DocumentView(label: 'Условия использования')));
+                                },
+                            ),
+                            TextSpan(
+                              text: 'Политикой конфиденциальности',
+                              style: const TextStyle(
+                                color: Color(0xffF83758),
+                              ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const DocumentView(label: 'Политика конфиденциальности')));
+                                },
+                            ),
+                            const TextSpan(
+                                text: ' и ',
+                                style: TextStyle(color: Color(0xff939393))),
+                            TextSpan(
+                              text: 'офертой',
+                              style: const TextStyle(
+                                color: Color(0xffF83758),
+                              ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const DocumentView(label: 'Оферта')));
+                                },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

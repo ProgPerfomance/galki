@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:galki/presentation/main/home_view.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OTPView extends StatelessWidget {
@@ -91,7 +92,7 @@ class OTPView extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> OTPView()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeView()));
                 },
                 child: Container(
                   height: 52,

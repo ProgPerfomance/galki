@@ -270,7 +270,16 @@ class MyProfileView extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 18,),
-                const SubscriptiosView(),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      const SubscriptiosView(),
+                      const SubscriptiosView(),
+                      const SubscriptiosView(),
+                    ],
+                  ),
+                ),
                 const SizedBox(
                   height: 24,
                 ),
